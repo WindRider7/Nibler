@@ -5,21 +5,24 @@ struct  grid
 {
   int   x;
   int   y;
+
+  grid() : x(0), y(0) {}
+  grid(int xx, int yy) : x(xx), y(yy) {}
 };
 
-class             IAssistant
+class           IAssistant
 {
 protected:
-  grid          area_; // game area resolution
-  grid          map_; // 'case' resolution
+  grid          areaS_; // game area resolution
+  grid          mapS_; // 'case' resolution
 
 public:
   virtual       ~IAssistant() {}
 
   virtual grid  getReso() const = 0;
   virtual void  init() const = 0;
-  virtual grid  setArea(grid &it) = 0; // must set map_ aswell, and return it
-  grid          getMap() { return this->map_; }
+  virtual grid  setArea(grid &area) = 0; // must set mapS_ aswell, and return it
+  grid          getMap() { return this->mapS_; }
 };
 
 // this ↓ class for testing purposes, do NOT look here.

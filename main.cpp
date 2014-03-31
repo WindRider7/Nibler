@@ -18,28 +18,29 @@ void  myExit(int s)
 
 void          start(std::string X, std::string Y, std::string lib)
 {
-  IAssistant  *gl;
+  IAssistant  *gl = NULL;
   Parser      p;
   Core        c;
 
-  try
-  {
-    gl = p.graphInit(X, Y, lib); // start
-    c.start(gl); //                 lvl down
-  }
-  catch (std::logic_error &error)
-  {
-    delete gl;
-    std::cout << "Error: " << error.what() << std::endl
-              << "Use: './nibbler --help' for more info" << std::endl;
-    myExit(0);
-  }
-  catch (std::exception &error)
-  {
-    delete gl;
-    std::cerr << "Error: " << error.what() << std::endl;
-    myExit(1);
-  }
+try
+{
+  gl = p.graphInit(X, Y, lib); // start
+  c.start(gl); //                 lvl down
+}
+catch (std::logic_error &error)
+{
+  delete gl;
+  std::cout << "Error: " << error.what() << std::endl
+            << "Use: './nibbler --help' for more info" << std::endl;
+  myExit(0);
+}
+catch (std::exception &error)
+{
+  delete gl;
+  std::cerr << "Error: " << error.what() << std::endl;
+  myExit(1);
+}
+
 }
 
 int           main(int argc, char const *argv[])

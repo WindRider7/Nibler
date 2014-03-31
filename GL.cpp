@@ -25,8 +25,8 @@ void  GL::init() const
 
 grid  GL::setArea(grid &it)
 {
-  this->area_ = it;
-  this->map_.x = it.x / 2;
-  this->map_.y = it.y / 2;
-  return (this->map_);
+  this->areaS_ = it;
+  this->mapS_.x = it.x / 2;
+  this->mapS_.y = it.y / 2;
+  return (this->mapS_);
 }
