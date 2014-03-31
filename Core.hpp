@@ -14,6 +14,7 @@ private:
   grid              mapS_;
 
   void              init(IAssistant *gl);
+  void              goOn();
 
 public:
   Core();

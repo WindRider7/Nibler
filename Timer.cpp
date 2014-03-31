@@ -1,6 +1,10 @@
 #include "Timer.hpp"
 
-Timer::Timer() {}
+Timer::Timer()
+{
+  this->t_ = clock();
+  this->timeout_ = 0;
+}
 
 Timer::~Timer() {}
 

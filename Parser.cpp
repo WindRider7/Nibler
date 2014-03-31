@@ -3,15 +3,9 @@
 #include <stdexcept> // logic_error, runtime_error
 #include "Parser.hpp"
 
-Parser::Parser()
-{
-  //ctor
-}
+Parser::Parser() {}
 
-Parser::~Parser()
-{
-
-}
+Parser::~Parser() {}
 
 bool  Parser::isDigits(const std::string &str)
 {
@@ -33,10 +27,12 @@ void          Parser::parse(std::string &lib)
   std::string it;
 
   it.append("'").append(lib).append("' is not a library");
-  if ((lib.compare(0, 12, "lib_nibbler_") != 0)
-    || (lib.compare((lib.size() - 3), 3, ".so") != 0))
+  if (lib.compare((lib.size() - 3), 3, ".so") != 0)
     throw std::logic_error(it);
-  this->gl = new GL;// I will use external_creator(); instead   ^
+  it.replace(it.size() - 7, 15, "correct library");
+  if (lib.compare(0, 12, "lib_nibbler_") != 0)
+    throw std::logic_error(it);
+  this->gl = new GL;// I will use external_creator(); instead
 }
 
 IAssistant*   Parser::graphInit(std::string X, std::string Y, std::string &lib)
@@ -45,8 +41,8 @@ IAssistant*   Parser::graphInit(std::string X, std::string Y, std::string &lib)
   grid        curr;
 
   parse(lib);
-  std::cout << "Initializing graphics ..." << std::flush;
-  gl->init(); std::cout << " Done" << std::endl;
+  std::cout << "Initializing graphics ..." << std::endl;
+  gl->init(); std::cout << " > Done" << std::endl;
   reso = gl->getReso();
   if (!isDigits(X) || !isDigits(Y))
     throw std::logic_error("Invalid value passed");

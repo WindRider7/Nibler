@@ -14,7 +14,7 @@ public:
   Timer();
   ~Timer();
 
-  void      exec();
+  void      exec(); // nothing yet
   bool      isOut();
   void      reset(const clock_t &timeout);
 };

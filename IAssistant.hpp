@@ -15,7 +15,7 @@ struct  grid
 class           IAssistant
 {
 protected:
-  grid          areaS_; // game area resolution
+  grid          areaS_; // 'px' area resolution
   grid          mapS_; // 'case' resolution
 
 public:
@@ -24,8 +24,11 @@ public:
   virtual void  init() = 0;
   virtual grid  getReso() = 0;
   virtual grid  setArea(const grid &area) = 0; // must set mapS_ aswell, and return it
-  grid          getMap() { return this->mapS_; }
+  grid          getMapS() { return this->mapS_; }
   virtual void  draw(const std::vector<grid> &s_, const grid &f_) const = 0;
+
+  virtual bool  escP() const = 0; // Esc pressed
+  virtual bool  anyP() const = 0; // any Key pressed
 };
 
 // this     class for testing purposes
@@ -41,6 +44,8 @@ public:
   virtual grid  setArea(const grid &area);
   virtual void  draw(const std::vector<grid> &s_, const grid &f_) const;
 
+  virtual bool  escP() const;
+  virtual bool  anyP() const;
 };
 
 #endif // !_IASSISTANT_

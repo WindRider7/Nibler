@@ -9,7 +9,7 @@
 
 void  myExit(int s)
 {
-  std::cout << "Exit" << std::endl;
+  std::cout << " > Exit" << std::endl;
   if (s == 0)
     exit(EXIT_SUCCESS);
   else

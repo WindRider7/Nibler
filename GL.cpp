@@ -1,14 +1,10 @@
-#include "IAssistant.hpp" // this file is for testing porposes
+#include "IAssistant.hpp"
 
-GL::GL()
-{
+#include <iostream>
 
-}
+GL::GL() {}
 
-GL::~GL()
-{
-
-}
+GL::~GL() {}
 
 grid  GL::getReso()
 {
@@ -18,14 +14,15 @@ grid  GL::getReso()
 	return it;
 }
 
-void  GL::draw(const std::vector<grid> &s_, const grid &f_) const
+void  GL::draw(const std::vector<grid> &s_, const grid &f_) const {}
+
+bool  GL::anyP() const {}
+
+void  GL::init() {}
+
+bool  GL::escP() const
 {
-
-}
-
-void  GL::init()
-{
-
+  return true;
 }
 
 grid  GL::setArea(const grid &area)
@@ -35,3 +32,6 @@ grid  GL::setArea(const grid &area)
   this->mapS_.y = area.y / 2;
   return (this->mapS_);
 }
+
+//      /\
+// this    file is for testing porposes
