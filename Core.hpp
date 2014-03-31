@@ -8,9 +8,8 @@ class               Core
 {
 protected:
 private:
-  std::vector< std::vector<int> >  map_;
-
-  std::vector<grid> s_;
+  std::vector<grid> s_; // snake
+  grid				f_; // food
   char              dir_;
   grid              mapS_;
 

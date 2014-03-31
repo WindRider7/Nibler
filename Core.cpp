@@ -11,7 +11,6 @@ void  Core::init(IAssistant *gl)
 
   this->dir_ = 'a';
   this->mapS_ = gl->getMap();
-  this->map_.resize(this->mapS_.y, std::vector<int>(this->mapS_.x, 0));
   this->s_.push_back(grid(this->mapS_.x / 2, this->mapS_.y / 2));
 }
 
