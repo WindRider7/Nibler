@@ -26,7 +26,7 @@ void    Core::start(IAssistant *gl)
   Timer t;
 
   init(gl);
-  gl->draw(this->s_, this->f_);
+  gl->drawEw();
   std::cout << "Press any key to start ..." << std::endl;
   while(!gl->anyP()); std::cout << " > Start" << std::endl;
   while (!gl->escP())
@@ -34,7 +34,7 @@ void    Core::start(IAssistant *gl)
     if (t.isOut())
     {
       goOn();
-      gl->draw(this->s_, this->f_);
+      gl->drawWa(this->s_, this->f_);
       t.reset(1000);
     }
   }

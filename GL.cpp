@@ -14,7 +14,7 @@ grid  GL::getReso()
 	return it;
 }
 
-void  GL::draw(const std::vector<grid> &s_, const grid &f_) const {}
+void  GL::drawWa(const std::vector<grid> &s_, const grid &f_) const {}
 
 bool  GL::anyP() const {}
 
@@ -24,6 +24,8 @@ bool  GL::escP() const
 {
   return true;
 }
+
+void  GL::drawEw() {}
 
 grid  GL::setArea(const grid &area)
 {
