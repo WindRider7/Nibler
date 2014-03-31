@@ -28,7 +28,7 @@ public:
   virtual void  draw(const std::vector<grid> &s_, const grid &f_) const = 0;
 };
 
-// this     class for testing purposes, do NOT look here.
+// this     class for testing purposes
 //       \/
 class           GL : public IAssistant
 {

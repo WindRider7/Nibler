@@ -9,7 +9,7 @@ class               Core
 protected:
 private:
   std::vector<grid> s_; // snake
-  grid				f_; // food
+  grid				      f_; // food
   char              dir_;
   grid              mapS_;
 
