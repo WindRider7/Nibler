@@ -20,10 +20,13 @@ void  Core::init(IAssistant *gl)
 {
   dir_ = 'l';
   mapS_ = gl->getMapS();
+  map_.resize(mapS_.y + 1, std::vector<int>(mapS_.x + 1, 0));
+  // ^ 1st element index will be 1
   s_.push_back(grid( mapS_.x - (mapS_.x / 2), mapS_.y - (mapS_.y / 2) ));
-  s_.push_back(grid(s_[0].x + 1, s_[0].y));
-  s_.push_back(grid(s_[1].x + 1, s_[1].y));
-  s_.push_back(grid(s_[2].x + 1, s_[2].y));
+  for (uint i = 0; i != 3; ++i) // init s_
+    s_.push_back(grid(s_[i].x + 1, s_[i].y));
+  for (uint i = 0; i != s_.size(); ++i) // store s_ to map_
+    map_[s_[i].y][s_[i].x] = 2;
 }
 
 void    Core::goOn() // screeeewww 'this->'

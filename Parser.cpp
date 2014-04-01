@@ -52,6 +52,6 @@ IAssistant*   Parser::graphInit(std::string X, std::string Y, std::string &lib)
     throw std::logic_error("Game area is too big");
   reso = gl->setArea(curr);
   if (reso.x < 9 || reso.y < 9)
-    throw std::logic_error("Game area is too small");
+    throw std::runtime_error("Game area is too small");
   return this->gl;
 }

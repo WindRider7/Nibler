@@ -2,6 +2,7 @@
 # define _CORE_H_
 
 #include <vector>
+#include <list>
 #include "IAssistant.hpp"
 
 class               Core

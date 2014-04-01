@@ -2,11 +2,14 @@
 # define _IASSISTANT_
 
 #include <vector>
+#include <list>
+
+typedef unsigned int  uint;
 
 struct  grid
 {
-  unsigned int   x;
-  unsigned int   y;
+  uint  x;
+  uint  y;
 
   grid() : x(0), y(0) {}
   grid(int xx, int yy) : x(xx), y(yy) {}
