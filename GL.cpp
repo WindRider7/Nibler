@@ -14,9 +14,9 @@ grid  GL::getReso() const
 	return it;
 }
 
-void  GL::drawWa(const std::vector<grid> &s, const grid &f) const
+void  GL::drawWa(const std::list<grid> &s, const grid &f)
 {
-  std::vector<grid>::const_iterator it;
+  std::list<grid>::const_iterator it;
 
   for (it = s.begin(); it != s.end(); ++it)
   {
@@ -34,7 +34,16 @@ bool  GL::escP() const
   return false;
 }
 
-void  GL::drawEw() const {}
+void  GL::newWin(const std::list<grid> &s, const grid &f)
+{
+  std::list<grid>::const_iterator it;
+
+  for (it = s.begin(); it != s.end(); ++it)
+  {
+    std::cout << "x(" << (*it).x << "), y (" << (*it).y << ")" << std::endl;
+  }
+  std::cout << "-------" << std::endl;
+}
 
 grid  GL::setArea(const grid &area)
 {

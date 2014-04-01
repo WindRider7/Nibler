@@ -10,8 +10,9 @@ class               Core
 protected:
 private:
   std::vector< std::vector<int> > map_;
+  // 1st element index is [1][1]   ^
 
-  std::vector<grid> s_; // snake
+  std::list<grid>   s_; // snake
   grid				      f_; // food
   char              dir_;
   grid              mapS_;

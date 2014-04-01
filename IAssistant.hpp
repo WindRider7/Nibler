@@ -26,10 +26,16 @@ public:
 
   virtual void  init() = 0;
   virtual grid  getReso() const = 0;
-  virtual grid  setArea(const grid &area) = 0; // must set mapS_ aswell, and return it
-  grid          getMapS() { return this->mapS_; }
-  virtual void  drawEw() const = 0; // draw Empty Window
-  virtual void  drawWa(const std::vector<grid> &s, const grid &f) const = 0;
+
+  virtual grid  setArea(const grid &area) = 0;
+  //  ^  must set mapS_ aswell, and return it
+  grid          getMapS() const { return this->mapS_; }
+
+  virtual void  newWin(const std::list<grid> &s, const grid &f) = 0;
+  // create New Window  ^
+
+  virtual void  drawWa(const std::list<grid> &s, const grid &f) = 0;
+  // update work area  ^
 
   virtual bool  escP() const = 0; // Esc pressed
   virtual bool  anyP() const = 0; // any Key pressed
@@ -46,8 +52,8 @@ public:
   virtual void  init();
 	virtual grid  getReso() const;
   virtual grid  setArea(const grid &area);
-  virtual void  drawEw() const;
-  virtual void  drawWa(const std::vector<grid> &s, const grid &f) const;
+  virtual void  newWin(const std::list<grid> &s, const grid &f);
+  virtual void  drawWa(const std::list<grid> &s, const grid &f);
 
   virtual bool  escP() const;
   virtual bool  anyP() const;
