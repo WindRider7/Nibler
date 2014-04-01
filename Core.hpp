@@ -8,6 +8,8 @@ class               Core
 {
 protected:
 private:
+  std::vector< std::vector<int> > map_;
+
   std::vector<grid> s_; // snake
   grid				      f_; // food
   char              dir_;
@@ -15,12 +17,13 @@ private:
 
   void              init(IAssistant *gl);
   void              goOn();
+  bool              sAlive();
 
 public:
   Core();
   ~Core();
 
-  void              start(IAssistant *gl);
+  int               start(IAssistant *gl);
 };
 
 #endif // !_CORE_H_

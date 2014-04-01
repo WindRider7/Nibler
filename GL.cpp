@@ -6,7 +6,7 @@ GL::GL() {}
 
 GL::~GL() {}
 
-grid  GL::getReso()
+grid  GL::getReso() const
 {
   grid it;
   it.x = 1920;
@@ -14,7 +14,16 @@ grid  GL::getReso()
 	return it;
 }
 
-void  GL::drawWa(const std::vector<grid> &s_, const grid &f_) const {}
+void  GL::drawWa(const std::vector<grid> &s, const grid &f) const
+{
+  std::vector<grid>::const_iterator it;
+
+  for (it = s.begin(); it != s.end(); ++it)
+  {
+    std::cout << "x(" << (*it).x << "), y (" << (*it).y << ")" << std::endl;
+  }
+  std::cout << "-------" << std::endl;
+}
 
 bool  GL::anyP() const {}
 
@@ -22,10 +31,10 @@ void  GL::init() {}
 
 bool  GL::escP() const
 {
-  return true;
+  return false;
 }
 
-void  GL::drawEw() {}
+void  GL::drawEw() const {}
 
 grid  GL::setArea(const grid &area)
 {
@@ -34,6 +43,8 @@ grid  GL::setArea(const grid &area)
   this->mapS_.y = area.y / 2;
   return (this->mapS_);
 }
+
+void  GL::drawMap(const std::vector< std::vector<int> > &map) const {}
 
 //      /\
 // this    file is for testing porposes
