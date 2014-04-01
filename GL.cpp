@@ -44,7 +44,5 @@ grid  GL::setArea(const grid &area)
   return (this->mapS_);
 }
 
-void  GL::drawMap(const std::vector< std::vector<int> > &map) const {}
-
 //      /\
 // this    file is for testing porposes

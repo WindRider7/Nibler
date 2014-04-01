@@ -27,8 +27,6 @@ public:
   grid          getMapS() { return this->mapS_; }
   virtual void  drawEw() const = 0; // draw Empty Window
   virtual void  drawWa(const std::vector<grid> &s, const grid &f) const = 0;
-  // i will remove this   ^
-  virtual void  drawMap(const std::vector< std::vector<int> > &map) const = 0;
 
   virtual bool  escP() const = 0; // Esc pressed
   virtual bool  anyP() const = 0; // any Key pressed
@@ -47,8 +45,6 @@ public:
   virtual grid  setArea(const grid &area);
   virtual void  drawEw() const;
   virtual void  drawWa(const std::vector<grid> &s, const grid &f) const;
-  // i will remove this   ^
-  virtual void  drawMap(const std::vector< std::vector<int> > &map) const;
 
   virtual bool  escP() const;
   virtual bool  anyP() const;
