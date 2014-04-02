@@ -40,7 +40,8 @@ void          Parser::parse(std::string &lib)
 IAssistant*   Parser::graphInit(std::string X, std::string Y, std::string &lib)
 {
   grid        reso;
-  grid        curr;
+  grid        mapS;
+  grid        area;
 
   parse(lib);
   std::cout << "Initializing graphics ..." << std::endl;
@@ -48,12 +49,12 @@ IAssistant*   Parser::graphInit(std::string X, std::string Y, std::string &lib)
   reso = gl->getReso();
   if (!isDigits(X) || !isDigits(Y))
     throw std::logic_error("Invalid value passed");
-  curr.x = str2int(X);
-  curr.y = str2int(Y);
-  if (reso.x < curr.x || reso.y < curr.y)
+  mapS.x = str2int(X);
+  mapS.y = str2int(Y);
+  area = gl->setMapS(mapS);
+  if (reso.x < area.x || reso.y < area.y)
     throw std::logic_error("Game area is too big");
-  reso = gl->setArea(curr);
-  if (reso.x < 9 || reso.y < 9)
-    throw std::runtime_error("Game area is too small");
+  if (mapS.x < 9 || mapS.y < 9)
+    throw std::logic_error("Game area is too small");
   return this->gl;
 }

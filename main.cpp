@@ -56,12 +56,13 @@ int           main(int argc, char const *argv[])
   {
     if (helpArg.compare(argv[1]) == 0)
     {
-      std::cout << "Usage: './nibbler X Y lib_nibbler_***.so'" << std::endl
+      std::cout << " > Usage: './nibbler X Y lib_nibbler_***.so'" << std::endl
                 << "Where : " << std::endl
                 << "'***' - name of the GL" << std::endl
                 << "X - game area width (px)" << std::endl
                 << "Y - game area height (px)" << std::endl
-                << "Game area cannot exceed screen resolution" << std::endl;
+                << "Game Area cannot exceed screen resolution" << std::endl
+                << "Game Area cannot be less then 9 x 9" << std::endl;
       myExit(0);
     }
   }

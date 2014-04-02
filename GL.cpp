@@ -43,12 +43,13 @@ void  GL::newWin(const std::list<grid> &s, const grid &f)
   std::cout << "-------" << std::endl;
 }
 
-grid  GL::setArea(const grid &area)
+//bool  GL::pollEvent() const {}
+
+grid  GL::setMapS(const grid &mapS)
 {
-  this->areaS_ = area;
-  this->mapS_.x = area.x / 2;
-  this->mapS_.y = area.y / 2;
-  return (this->mapS_);
+  mapS_ = mapS;
+  winMaxS_ = grid(mapS.x * 20, mapS.y * 20);
+  return (winMaxS_);
 }
 
 bool  GL::leftP() const
