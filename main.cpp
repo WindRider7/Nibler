@@ -1,13 +1,12 @@
-#include <iostream> // I/O
 #include <exception> // exception
 #include <cstdlib> // EXIT_
 #include <stdexcept> // logic_error, runtime_error
-#include <string> // string
+#include <string>
+#include <iostream>
 #include "IAssistant.hpp"
 #include "Parser.hpp"
 #include "Core.hpp"
-                                  #include "Timer.hpp"
-                                  #include <iterator>
+
 void  myExit(int s)
 {
   std::cout << " > Exit" << std::endl;

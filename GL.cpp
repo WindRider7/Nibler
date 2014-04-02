@@ -1,7 +1,5 @@
 #include "IAssistant.hpp"
 
-#include <iostream>
-
 GL::GL() {}
 
 GL::~GL() {}
@@ -51,6 +49,16 @@ grid  GL::setArea(const grid &area)
   this->mapS_.x = area.x / 2;
   this->mapS_.y = area.y / 2;
   return (this->mapS_);
+}
+
+bool  GL::leftP() const
+{
+  return false;
+}
+
+bool  GL::rightP() const
+{
+  return false;
 }
 
 //      /\

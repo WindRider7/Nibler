@@ -3,17 +3,7 @@
 
 #include <vector>
 #include <list>
-
-typedef unsigned int  uint;
-
-struct  grid
-{
-  uint  x;
-  uint  y;
-
-  grid() : x(0), y(0) {}
-  grid(int xx, int yy) : x(xx), y(yy) {}
-};
+#include "MyTypes.hpp"
 
 class           IAssistant
 {
@@ -39,6 +29,8 @@ public:
 
   virtual bool  escP() const = 0; // Esc pressed
   virtual bool  anyP() const = 0; // any Key pressed
+  virtual bool  leftP() const = 0;
+  virtual bool  rightP() const = 0;
 };
 
 // this     class for testing purposes
@@ -57,6 +49,8 @@ public:
 
   virtual bool  escP() const;
   virtual bool  anyP() const;
+  virtual bool  leftP() const;
+  virtual bool  rightP() const;
 };
 
 #endif // !_IASSISTANT_
