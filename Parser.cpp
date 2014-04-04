@@ -2,8 +2,8 @@
 
 #include <sstream> // stringstream
 #include <stdexcept> // logic_error, runtime_error
-#include "MyTypes.hpp"
-
+#include "Tools.hpp"
+#include "GL.hpp" // NO
 
 Parser::Parser() {}
 
@@ -43,18 +43,19 @@ IAssistant*   Parser::graphInit(std::string X, std::string Y, std::string &lib)
   grid        mapS;
   grid        area;
 
-  parse(lib);
   std::cout << "Initializing graphics ..." << std::endl;
-  gl->init(); std::cout << " > Done" << std::endl;
-  reso = gl->getReso();
+  parse(lib);
   if (!isDigits(X) || !isDigits(Y))
     throw std::logic_error("Invalid value passed");
   mapS.x = str2int(X);
   mapS.y = str2int(Y);
   area = gl->setMapS(mapS);
+  gl->init();
+  reso = gl->getReso();
   if (reso.x < area.x || reso.y < area.y)
     throw std::logic_error("Game area is too big");
   if (mapS.x < 9 || mapS.y < 9)
     throw std::logic_error("Game area is too small");
+  std::cout << " > Done" << std::endl;
   return this->gl;
 }

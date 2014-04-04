@@ -1,5 +1,5 @@
-#ifndef _MYTYPES_H_
-# define _MYTYPES_H_
+#ifndef _TOOLS_H_
+# define _TOOLS_H_
 
 #include <iostream>
 
@@ -18,5 +18,6 @@ struct                grid
 };
 
 std::ostream&         operator<<(std::ostream &os, grid const &other);
+void                  myExit(int s);
 
-#endif // !_MYTYPES_H_
+#endif // !_TOOLS_H_

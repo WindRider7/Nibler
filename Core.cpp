@@ -2,7 +2,7 @@
 
 #include <ctime>
 #include <cstdlib>
-#include "MyTypes.hpp"
+#include "Tools.hpp"
 #include "Timer.hpp"
 
 Core::Core() {}
@@ -119,25 +119,36 @@ int     Core::start(IAssistant *gl)
   init(gl);
   gl->newWin(this->s_, this->f_);
   std::cout << "Press any key to start ..." << std::endl;
-  while (!gl->anyP()); std::cout << " > Start" << std::endl;
-  t.reset(1000);
+  while (!gl->anyR())
+    gl->drawWa(this->s_, this->f_);
+  std::cout << " > Start" << std::endl;
   while (!gl->escP()) // main loop
   {
-    if (gl->leftP() && !dLocked_)
-      changeDir('<');
-    if (gl->rightP() && !dLocked_)
-      changeDir('>');
+    while (gl->eventOccured())
+    {
+      if (gl->leftP() && !dLocked_)
+        changeDir('<');
+      if (gl->rightP() && !dLocked_)
+        changeDir('>');
+    }
     if (t.isOut())
     {
       goOn();
       if (!sAlive())
+      {
+        std::cout << "Game Over !" << std::endl;
+        std::cout << "Press any key to exit ..." << std::endl;
+        while (!gl->anyR());
         return 0;
+      }
       gl->drawWa(this->s_, this->f_);
       dLocked_ = false;
-      t.reset(1000);
+      t.reset(200);
     }
+ // gl->drawWa(this->s_, this->f_);
   }
-  return 1;
+  std::cout << "Esc pressed ..." << std::endl;
+  return 0;
 }
 
 void  Core::changeDir(char d)
@@ -151,8 +162,8 @@ void  Core::changeDir(char d)
   if (d == '>')
   {
     ++d_;
-    if (d_ == 3)
-      d = 0;
+    if (d_ == 4)
+      d_ = 0;
   }
   dLocked_ = true;
 }

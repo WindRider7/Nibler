@@ -1,4 +1,6 @@
-#include "MyTypes.hpp"
+#include "Tools.hpp"
+
+#include <cstdlib> // EXIT_
 
 grid::grid() : x(0), y(0) {}
 grid::grid(int xx, int yy) : x(xx), y(yy) {}
@@ -25,4 +27,13 @@ std::ostream& operator<<(std::ostream &os, grid const &other)
 {
   os << "x(" << other.x << "), y(" << other.y << ")";
   return os;
+}
+
+void  myExit(int s)
+{
+  std::cout << " > Exit" << std::endl;
+  if (s == 0)
+    exit(EXIT_SUCCESS);
+  else
+    exit(EXIT_FAILURE);
 }
