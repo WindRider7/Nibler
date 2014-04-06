@@ -8,15 +8,13 @@ Timer::Timer()
 
 Timer::~Timer() {}
 
-void  Timer::exec() {}
-
 void  Timer::reset(const clock_t &timeout)
 {
   this->t_ = clock();
   this->timeout_ = timeout;
 }
 
-bool  Timer::isOut()
+bool  Timer::isOut() const
 {
   if (clock() - this->t_ > this->timeout_)
     return true;

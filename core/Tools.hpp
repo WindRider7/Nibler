@@ -7,8 +7,8 @@ typedef unsigned int  uint;
 
 struct                grid
 {
-  uint                x;
-  uint                y;
+  int                 x;
+  int                 y;
 
   grid();
   grid(int xx, int yy);

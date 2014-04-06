@@ -5,7 +5,6 @@
 
 class       Timer
 {
-protected:
 private:
   clock_t   t_;
   clock_t   timeout_;
@@ -14,8 +13,7 @@ public:
   Timer();
   ~Timer();
 
-  void      exec(); // nothing yet
-  bool      isOut();
+  bool      isOut() const;
   void      reset(const clock_t &timeout);
 };
 
