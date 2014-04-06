@@ -25,16 +25,10 @@ catch (const std::logic_error &error)
             << "Use: './nibbler --help' for more info" << std::endl;
   myExit(0);
 }
-catch (const std::runtime_error &error)
+catch (const std::exception &error)
 {
   delete gl;
-  std::cerr << "Error: " << error.what() << std::endl;
-  myExit(1);
-}
-catch (...)
-{
-  delete gl;
-  std::cout << "Error: ?" << std::endl;
+  std::cout << "Error: " << error.what() << std::endl;
   myExit(1);
 }
 

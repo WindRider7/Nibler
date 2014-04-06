@@ -27,6 +27,7 @@ public:
   // update map area ^
   virtual bool  leftP() = 0;
   virtual bool  anyP() = 0;
+  virtual bool  xPressed() = 0; // (x) button pressed
   virtual bool  rightP() = 0;
   virtual bool  escP() = 0; // Esc pressed
   virtual bool  anyR() = 0; // any Key released! :O

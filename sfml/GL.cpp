@@ -41,7 +41,7 @@ void  GL::init()
     throw std::runtime_error("food_.loadFromFile fail");
 }
 
-void  GL::updateMap(const std::vector< std::vector<int> >  &map)
+void  GL::updateMap(const std::vector< std::vector<int> > &map)
 {
   int x;
   int y;
@@ -93,13 +93,13 @@ void  GL::updateWin()
   win_.clear();
 }
 
-void  GL::drawWa(const std::vector< std::vector<int> >  &map)
+void  GL::drawWa(const std::vector< std::vector<int> > &map)
 {
   updateMap(map);
   updateWin();
 }
 
-void  GL::newWin(const std::vector< std::vector<int> >  &map)
+void  GL::newWin(const std::vector< std::vector<int> > &map)
 {
   std::list<grid>::const_iterator it;
   sf::VideoMode                   gWin;
@@ -173,4 +173,9 @@ bool  GL::rightP()
     return true;
   else
     return false;
+}
+
+bool  GL::xPressed()
+{
+  return false;
 }

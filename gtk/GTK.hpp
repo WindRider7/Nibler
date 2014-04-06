@@ -1,36 +1,28 @@
-#ifndef _GL_H_
-# define _GL_H_
+#ifndef _GTK_H_
+# define _GTK_H_
 
-#include <SFML/Graphics.hpp> //graphics module
+#include <gtk/gtk.h>
+#include <pthread.h>
 #include "Tools.hpp"
 #include "LibInt.hpp"
 
-
-class               GL : public LibInt
+class               GTK : public LibInt
 {
 private:
   grid              winMaxS_; // window max size
-  sf::VideoMode     desk_; // desktop mode
-  sf::Texture       head_;
-  sf::Event         event_;
-  sf::Texture       tail_;
-  sf::Texture       body_;
-  sf::Texture       food_;
-  sf::Texture       block_;
-  sf::RenderWindow  win_;
-  sf::Sprite        tmp_;
-  sf::Window        App_;
+  GtkWidget         *win_;
+  pthread_t         gtk_; // main loop
 
   void              updateMap(const std::vector< std::vector<int> > &map);
   void              updateWin();
 
 public:
-                    GL();
-  virtual           ~GL();
+  GTK();
+  virtual ~GTK();
 
   virtual grid      setMapS(const grid &mapS);
   virtual void      init();
-	virtual grid      getReso() const;
+  virtual grid      getReso() const;
   virtual void      newWin(const std::vector< std::vector<int> > &map);
   virtual void      drawWa(const std::vector< std::vector<int> > &map);
   virtual bool      escP();
@@ -42,4 +34,4 @@ public:
   virtual bool      eventOccured();
 };
 
-#endif // !_GL_H_
+#endif // !_GTK_H_

@@ -138,10 +138,14 @@ int     Core::start(LibInt *gl)
   while (!gl->anyR())
     gl->drawWa(map_);
   std::cout << " > Start" << std::endl;
-  while (!gl->escP()) // main loop
+  while (42) // main loop
   {
     if (gl->eventOccured())
     {
+      if (gl->escP())
+        break;
+      if (gl->xPressed())
+        break;
       if (gl->leftP() && !dLocked_)
         changeDir('<');
       if (gl->rightP() && !dLocked_)
@@ -166,7 +170,7 @@ int     Core::start(LibInt *gl)
     }
     gl->drawWa(map_);
   }
-  std::cout << "Esc pressed ..." << std::endl;
+  std::cout << "Esc or (x) pressed ..." << std::endl;
   return 0;
 }
 

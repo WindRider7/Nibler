@@ -3,14 +3,17 @@
 #include <dlfcn.h> // dlopen, dlclose, dlsym
 #include <sstream> // stringstream
 #include <stdexcept> // logic_error, runtime_error
-#include <exception>
 #include "Tools.hpp"
 
-Parser::Parser() {}
+Parser::Parser() 
+{
+  dlhandle = NULL;
+}
 
 Parser::~Parser() 
 {
-  dlclose(dlhandle);
+  if (dlhandle != NULL)
+    dlclose(dlhandle);
 }
 
 bool  Parser::isDigits(const std::string &str) const
@@ -92,20 +95,11 @@ try
     throw std::logic_error("Game area is too small");
   std::cout << " > Done" << std::endl;
   return this->gl;
- }
-catch (const std::logic_error &error)
-{
-  dlclose(dlhandle);
-  throw;
-}
-catch (const std::runtime_error &error)
-{
-  dlclose(dlhandle);
-  throw;
 }
 catch (...)
 {
-  dlclose(dlhandle);
+  if (dlhandle != NULL)
+    dlclose(dlhandle);
   throw;
 }
 
